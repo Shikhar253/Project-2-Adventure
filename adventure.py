@@ -58,8 +58,14 @@ class Game:
     def process_look(self):
         self.display_room()
 
+    
     def process_get(self, item):
         room = self.map_data[self.current_room_id]
+
+        if not item:
+            print("Sorry, you need to 'get' something.")
+            return
+
         matching_items = [map_item for map_item in room.get('items', []) if map_item.startswith(item)]
         if len(matching_items) == 1:
             self.inventory.append(matching_items[0])
@@ -69,6 +75,7 @@ class Game:
             print(f"Did you want to get {', '.join(matching_items)}?")
         else:
             print(f"There's no {item} anywhere.")
+
 
     def process_drop(self, item):
         if item in self.inventory:
@@ -115,7 +122,7 @@ class Game:
                 self.process_go(user_input)
             elif user_input == 'look':
                 self.process_look()
-            elif user_input.startswith('get '):
+            elif user_input.startswith('get'):
                 item = user_input[4:]
                 self.process_get(item)
             elif user_input.startswith('drop '):

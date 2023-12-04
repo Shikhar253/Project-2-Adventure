@@ -45,6 +45,7 @@ class Game:
         if direction in valid_directions:
             self.current_room_id = room['exits'][direction]
             print(f"You go {direction}.")
+            print("\n")
             self.display_room()
         else:
             print(f"There's no way to go {direction}.")
@@ -82,7 +83,7 @@ class Game:
                 print(f"  {item}")
 
     def process_quit(self):
-        print("Byeee GG!")
+        print("Goodbye!")
         sys.exit()
 
     def process_help(self):
@@ -122,7 +123,7 @@ class Game:
             elif user_input == 'help':
                 self.process_help()
             else:
-                print("Invalid command. Type 'help' for a list of commands.")
+                print("Use 'quit' to exit.")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

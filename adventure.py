@@ -29,6 +29,7 @@ class Game:
 
     def display_room(self):
         room = self.map_data[self.current_room_id]
+        
         print(f"> {room['name']}\n\n{room['desc']}\n")
         
         if 'items' in room and room['items']:
@@ -41,11 +42,15 @@ class Game:
     def process_go(self, direction):
         room = self.map_data[self.current_room_id]
         valid_directions = room['exits'].keys()
-        
+
+        if not direction:
+            print("Sorry, you need to 'go' somewhere.")
+            return
+
         if direction in valid_directions:
             self.current_room_id = room['exits'][direction]
-            print(f"You go {direction}.")
-            print("\n")
+            print(f"You go {direction}.\n")
+            
             self.display_room()
         else:
             print(f"There's no way to go {direction}.")
@@ -103,7 +108,7 @@ class Game:
         self.display_room()
         while True:
             user_input = input("What would you like to do? ").strip().lower()
-            if user_input.startswith('go '):
+            if user_input.startswith('go'):
                 direction = user_input[3:]
                 self.process_go(direction)
             elif user_input in self.map_data[self.current_room_id]['exits']:

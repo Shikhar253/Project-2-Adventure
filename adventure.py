@@ -99,7 +99,6 @@ class Game:
                 print(f"  {format_str}")
 
     def play(self):
-        print("Welcome to the Adventure Game!")
         self.display_room()
         while True:
             user_input = input("What would you like to do? ").strip().lower()

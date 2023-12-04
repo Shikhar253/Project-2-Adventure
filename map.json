@@ -1,0 +1,16 @@
+[
+    {"name": "A Pink room", "desc": "BARBIELAND!! Everything is Pink here",
+     "exits": {  "southwest": 2 ,"west": 1},
+     "items": ["car","lipstick","perfume","rose"]
+    }
+   ,
+    {"name": "A Brown room", "desc": "World WAR Museum. Find the artillaries here",
+     "exits": { "west": 0 ,"south": 2},
+     "items": ["bomb","tanker","gun","sword"]
+    }
+   ,
+    {"name": "A RED room", "desc": "SCARY ROOM! Stay aware or you might get KILLED!!",
+     "exits": { "north": 1, "southwest": 0 },
+     "items": ["bandage", "cloth", "stick", "shoes"]
+    }
+]

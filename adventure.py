@@ -101,9 +101,9 @@ class Game:
     def process_help(self):
         print("You can run the following commands:")
         command_formats = {
-            'go': "[direction] or go [direction]",
-            'get': "get [item]",
-            'drop': "drop [item]",
+            'go': "go ...",
+            'get': "get ...",
+            
         }
         for method_name in dir(self):
             if method_name.startswith("process_"):
